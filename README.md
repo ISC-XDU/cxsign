@@ -16,7 +16,7 @@
 
 配置和日志文件通过web服务查看和修改。
 
-**使用setup.py来初始化此项目，然后打开web服务器，通过 http://127.0.0.1:5000/ 来进行配置的修改。**
+**使用setup.py来初始化此项目，然后打开web服务器，通过 <http://127.0.0.1:5000/> 来进行配置的修改。**
 
 ---
 
@@ -41,9 +41,19 @@
 
 ## 部署教程
 
- - 1. 运行 setup.py 初始化根目录。
- - 2. 使用 `pip install -r requirements.txt` 安装依赖库。
- - 3. 运行 ./web/app.py 。
- - 4. 访问 http://127.0.0.1:5000/ 进行配置。
- - 5. 使用 crontab 定时运行 ./corn/main.py 即可实现自动签到。
- - 6. 想要在互联网上修改配置查看日志，把 web 服务配置到 wsgi 服务器上即可。
+### 直接部署
+
+- 1. 运行 setup.py 初始化根目录。
+- 2. 使用 `pip install -r requirements.txt` 安装依赖库。
+- 3. 运行 ./web/app.py 。
+- 4. 访问 <http://127.0.0.1:5000/> 进行配置。
+- 5. 使用 crontab 定时运行 ./corn/main.py 即可实现自动签到。
+- 6. 想要在互联网上修改配置查看日志，把 web 服务配置到 wsgi 服务器上即可。
+
+### 使用docker-compose
+
+- 克隆本仓库
+- 在当前目录中运行`docker-compose build`，等待完成
+- 运行：`docker-compose up -d`
+
+docker方式后续会支持crontab，目前在测试中。
