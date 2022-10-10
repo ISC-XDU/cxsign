@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <title>管理</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;">
+        <div id="header" class="d-flex flex-row align-items-center justify-content-center bg-light w-100" style="padding:2rem;">
+            <h2>---签到系统---</h2>
+        </div>
+        <div id="main" class="d-flex flex-column align-items-center" style="padding:2rem;">
+            <div style="width:100%;max-width:768px;min-height:64vh">
+                <form method="post" action="/">
+                    <div class="form-group">
+                        <input type="text" name="pass" class="form-control" placeholder="输入密码" required>
+                    </div>
+                    <button class="btn btn-primary">验证</button>
+                </form>
+            </div>
+        </div>
+        <div id="footer" class="d-flex flex-column align-items-center justify-content-center bg-light" style="padding:2rem;">
+            &copy; 2022 | 旧酒
+        </div>
+    </div>
+</html>

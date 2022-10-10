@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <title>日志</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;">
+        <div id="header" class="d-flex flex-row align-items-center justify-content-center bg-light w-100" style="padding:2rem;">
+            <h2>---日志系统---</h2>
+        </div>
+        <div id="main" class="d-flex flex-column align-items-center" style="padding:2rem;">
+            <div style="width:100%;max-width:768px;min-height:64vh">
+				{% for i in l: %}
+                    {% if loop.index0%2==0: %}
+                <code>{{i}}</code><br>
+                    {% else: %}
+                {{i}}<br>
+                    {% endif %}
+				{% endfor %}
+            </div>
+        </div>
+        <div id="footer" class="d-flex flex-column align-items-center justify-content-center bg-light" style="padding:2rem;">
+            &copy; 2022 | 旧酒
+        </div>
+    </div>
+</html>

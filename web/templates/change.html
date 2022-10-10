@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename = 'css/bootstrap.min.css') }}">
+    <title>管理</title>
+</head>
+<body>
+    <div class="container-fluid" style="padding:0;">
+        <div id="header" class="d-flex flex-row align-items-center justify-content-center bg-light w-100" style="padding:2rem;">
+            <h2>---签到系统---</h2>
+        </div>
+        <div id="main" class="d-flex flex-column align-items-center" style="padding:2rem;">
+            <div style="width:100%;max-width:768px;min-height:64vh">
+            {% for i,j in dict1.items() %}
+                <h3>{{i}}</h3>
+                <form method="post" action="/update">
+                    <div class="form-group">
+                        <input type="hidden" name="type" class="form-control" value="{{i}}">
+                    </div>
+                {% for k,l in j.items() %}
+                    <div class="form-group">
+                        <label>{{k}}</label>
+                        <input type="text" name="{{k}}" class="form-control" placeholder="{{l}}">
+                    </div>
+                {% endfor %}
+                    <button class="btn btn-primary">修改</button>
+                </form><br>
+            {% endfor %}
+            </div>
+        </div>
+        <div id="footer" class="d-flex flex-column align-items-center justify-content-center bg-light" style="padding:2rem;">
+            &copy; 2022 | 旧酒
+        </div>
+    </div>
+</html>
