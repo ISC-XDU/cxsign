@@ -1,0 +1,2 @@
+50 7 * * * python /app/core/main.py
+30 13 * * * python /app/core/main.py
