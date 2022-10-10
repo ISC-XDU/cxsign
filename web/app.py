@@ -55,4 +55,4 @@ def log():
     return render_template('log.html', l=l)
 
 if __name__=='__main__':
-    app.run()
+    app.run(host='0.0.0.0')
