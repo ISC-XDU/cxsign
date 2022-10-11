@@ -54,6 +54,9 @@
 
 - 克隆本仓库
 - 在当前目录中运行`docker-compose build`，等待完成
+- （可选）打开`docker-compose.yml`文件，将`ports`更改为`[你想要的端口]:5000`
 - 运行：`docker-compose up -d`
 
-docker方式后续会支持crontab，目前在测试中。
+**现已支持crontab自动配置，安装之后会在一天的7:50-12:10,13:30-18:50自动签到。**
+
+建议部署完成后
