@@ -22,13 +22,16 @@ class Cxsign:
         self.subject = []
         self.processed_sign = []
 
-        self.__login()
-        self.__get_subject()
+        login = self.__login()
+        if login['status']:
+            self.__get_subject()
+        else:
+            raise Exception(login['mes'])
 
     def __login(self):
         self.session = requests.session()
-        self.session.post(url=url['login'], data=self.__user, headers=headers)
-        print('登录成功！')
+        res = self.session.post(url=url['login'], data=self.__user, headers=headers)
+        return json.loads(res.text)
 
     def __get_subject(self):
         res = self.session.get(url['get_subject'], headers=headers)

@@ -1,12 +1,12 @@
-import os, json
+import os, json, sys
 
 mainpath = os.path.dirname(os.path.abspath(__file__))
 
 conf = {'xxt'       :   {'username' : '',
                         'passwd'    : '',
                         'address'   : '',
-                        'latitude'  : '',
-                        'longitude' : '',
+                        'latitude'  : 0,
+                        'longitude' : 0,
                         'picname'   : ''},
         'pushplus'  :   {'token'    : ''}}
 
@@ -31,8 +31,11 @@ def initconf(config='config.json', backup='config_backup.json'):
     loadconf(backup)
     return True
 
-if __name__=='__main__':
+def main():
     if initdir('log') and initconf():
         print('初始化完成！')
     else:
         print('初始化失败！')
+
+if __name__=='__main__':
+    main()
