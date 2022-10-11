@@ -31,13 +31,16 @@ def update():
             with open(confbackup, 'rt', encoding='utf-8') as f:
                 conf_bu = json.load(f)
             for i,j in conf[typ].items():
-                if request.form.get(i)=='<--':
+                req = request.form.get(i)
+                if req not in ['', '<--'] and i in ['latitude', 'longitude']:
+                    req = float(req)
+                if req=='<--':
                     a = conf[typ][i]
                     conf[typ][i] = conf_bu[typ][i]
                     conf_bu[typ][i] = a
-                elif request.form.get(i)!='' and request.form.get(i)!=j:
+                elif req!='' and req!=j:
                     conf_bu[typ][i] = conf[typ][i]
-                    conf[typ][i] = request.form.get(i)
+                    conf[typ][i] = req
             with open(confbackup, 'wt', encoding='utf-8') as f:
                 f.write(json.dumps(conf_bu, ensure_ascii=False))
             with open(confaddr, 'wt', encoding='utf-8') as f:
