@@ -59,4 +59,4 @@
 
 **现已支持crontab自动配置，安装之后会在一天的7:50-12:10,13:30-18:50自动签到。**
 
-建议部署完成后
+建议部署完成后进去`docker exec -it cxsign_web_1 bash`用`crontab -e && date`看下crontab和时间配置是否正确。
